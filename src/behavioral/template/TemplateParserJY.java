@@ -11,6 +11,7 @@ public abstract class TemplateParserJY
 	
 	protected TemplateDataJY _data = null;
 	
+	/* Suggestion: add final modifier to template method */
 	public final TemplateDataJY DoParse()
 	{
 		ReadData();
