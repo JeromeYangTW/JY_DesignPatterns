@@ -8,12 +8,12 @@ public class FacadeJY
 	
 	public void DoCalculate()
 	{
-		SubsysAJY sysa = new SubsysAJY();
+		SubsysAJY sysa = SubsysAJY.GetInstance();
 		sysa.DoCalculate();
-		SubsysBJY sysb = new SubsysBJY();
+		SubsysBJY sysb = SubsysBJY.GetInstance();
 		sysb.DoCalculate();
 		
-		amount = sysa.amount+sysb.amount;
+		amount = SubsysAJY.amount+SubsysBJY.amount;
 	}
 }
 

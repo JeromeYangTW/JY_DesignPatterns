@@ -10,17 +10,16 @@ public class TestFacadeJY
 	public void Test()
 	{
 		FacadeJY fjy = new FacadeJY();
-		fjy.DoCalculate();
-		int a = fjy.amount;
-		
-		SubsysAJY ajy = new SubsysAJY();
+		fjy.DoCalculate();		
+		SubsysAJY ajy = SubsysAJY.GetInstance();
 		ajy.DoCalculate();
-		int b = ajy.amount;
-		SubsysBJY bjy = new SubsysBJY();
-		bjy.DoCalculate();
-		int c = bjy.amount;
+		SubsysBJY bjy = SubsysBJY.GetInstance();
+		bjy.DoCalculate();		
+		assertEquals( fjy.amount, SubsysAJY.amount+SubsysBJY.amount );
 		
-		assertEquals( a, b+c );
+		ClientJY cjy = new ClientJY();
+		cjy.DoCalculate();
+		assertEquals( cjy.amount, SubsysAJY.amount+SubsysBJY.amount );
 	}
 }
 
